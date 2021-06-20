@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "headers/course.hpp"
+
+void printHelp();
 
 int main() {
     std::string userIn = "", gradebookPath;
@@ -57,7 +60,11 @@ int main() {
             std::cout << userIn << std::endl;
         } 
         else if (userIn == "e") {
-            std::cout << userIn << std::endl;
+            std::cout << "Which course would you like to view (enter an ID)?\n~> ";
+            getchar();
+            int courseID;
+            std::cin >> courseID;
+            viewCourse(courseID);
         }
         else if (userIn == "a") {
             std::cout << userIn << std::endl;
@@ -71,4 +78,8 @@ int main() {
         
     }
     return 0;
+}
+
+void printHelp() {
+    
 }

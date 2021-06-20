@@ -1,7 +1,8 @@
 class Assessment : Course {
 private:
     //weighting is stored as a percentage but can be converted later.
-    unsigned short assessedGrade = 0, maxGrade, weighting, parts = 1;
+    unsigned short assessedGrade = 0, maxGrade, weighting, latePenalty, parts = 1;
+    std::string dueDate, handinDate;
     bool multiPart;
 
 public:
