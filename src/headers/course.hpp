@@ -4,7 +4,7 @@
 #include "assessment.hpp"
 
 class Course {
-private:
+protected:
     std::string courseName, subjectArea, coordinators[10];
     short numberOfCoords = 1;
     unsigned short courseID;

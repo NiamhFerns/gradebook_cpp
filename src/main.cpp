@@ -40,38 +40,35 @@ int main() {
     std::cout << "      Welcome to the Gradebook.\n";
     std::cout << "     What would you like to do?\n";
     std::cout << "*************************************\n";
-    while(userIn != "Quit") {
+    bool QuitRequested = 0;
+    while(!QuitRequested) {
         std::cout << "~> ";
         getline(std::cin, userIn);
-        while (userIn.length() > 1 ) {
-            std::cout << "Oops! That is not an option. ('h' for help)\n~> ";
-            getline(std::cin, userIn);
+
+        for (int i = 0; i < userIn.length(); ++i) {
+            userIn[i] = tolower(userIn[i]);
         }
-
-        // switch(/*USER AN ENUM HERE*/ 1) {
-        //     case List courses:
-
-        //         break;
-
-        //     case Add course:
-                
-        //         break;
-
-        //     case View course:
-                
-        //         break;
-
-            
-        //     case Delete course:
-
-        //         break;
-
-        //     case Quit:
-        //         //save user output to txt document.
-        //         std::cout << "Closing the GradeBook.\nGoodbye! c:"
-        //         break;
-        // }
-
+        if (userIn == "quit") {
+            QuitRequested = 1;
+        }
+        //This is gross but I'm bad and can't think of a better way...
+        
+        if (userIn == "l") {
+            std::cout << userIn << std::endl;
+        } 
+        else if (userIn == "e") {
+            std::cout << userIn << std::endl;
+        }
+        else if (userIn == "a") {
+            std::cout << userIn << std::endl;
+        }
+        else if (userIn == "r") {
+            std::cout << userIn << std::endl;
+        }
+        else {
+            std::cout << "Oops! That is not an option. ('h' for help)\n";
+        }
+        
     }
     return 0;
 }
