@@ -2,8 +2,7 @@
 #include <string>
 #include <fstream>
 #include "headers/course.hpp"
-
-void printHelp();
+#include "headers/misc.hpp"
 
 int main() {
     std::string userIn = "", gradebookPath;
@@ -56,21 +55,26 @@ int main() {
         }
         //This is gross but I'm bad and can't think of a better way...
         
+        if (userIn == "h") {
+            printHelp('0');
+        }
+
         if (userIn == "l") {
-            std::cout << userIn << std::endl;
+            printHelp('2');
         } 
+
         else if (userIn == "e") {
-            std::cout << "Which course would you like to view (enter an ID)?\n~> ";
-            getchar();
-            int courseID;
-            std::cin >> courseID;
-            viewCourse(courseID);
+            printHelp('1');
+            // int courseID;
+            // getchar();
+            // std::cin >> courseID;
+            // viewCourse(courseID);
         }
         else if (userIn == "a") {
-            std::cout << userIn << std::endl;
+            printHelp('2');
         }
         else if (userIn == "r") {
-            std::cout << userIn << std::endl;
+            printHelp('3');
         }
         else {
             std::cout << "Oops! That is not an option. ('h' for help)\n";
@@ -78,8 +82,4 @@ int main() {
         
     }
     return 0;
-}
-
-void printHelp() {
-    
 }

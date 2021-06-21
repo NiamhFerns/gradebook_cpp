@@ -1,4 +1,4 @@
-class Assessment : Course {
+class Assessment {
 private:
     //weighting is stored as a percentage but can be converted later.
     unsigned short assessedGrade = 0, maxGrade, weighting, latePenalty, parts = 1;
