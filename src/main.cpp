@@ -59,7 +59,7 @@ int main() {
             printHelp('0');
         }
 
-        if (userIn == "l") {
+        else if (userIn == "l") {
             printHelp('2');
         } 
 
@@ -70,12 +70,15 @@ int main() {
             // std::cin >> courseID;
             // viewCourse(courseID);
         }
+
         else if (userIn == "a") {
             printHelp('2');
         }
+        
         else if (userIn == "r") {
             printHelp('3');
         }
+        
         else {
             std::cout << "Oops! That is not an option. ('h' for help)\n";
         }

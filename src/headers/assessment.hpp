@@ -1,3 +1,5 @@
+#include <string>
+#include <iostream>
 class Assessment{
 private:
     //weighting is stored as a percentage but can be converted later.
