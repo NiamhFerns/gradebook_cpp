@@ -21,7 +21,7 @@ int main() {
         getline(std::cin, userIn);
         
         //If the gradebook could not be found, alert user.
-        if(userIn == "Quit") {
+        if(userIn == "Quit" || userIn == "quit") {
             return 0;
         }
         else if (userIn == "y" || userIn == "Y") {
