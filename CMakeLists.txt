@@ -16,6 +16,6 @@ set(
     src/misc.cpp
 )
 
-add_executable(GradeBook ${SRC_FILES})
+add_executable(GradeBook ${HEADER_FILES} ${SRC_FILES})
 
 target_link_libraries(GradeBook)
