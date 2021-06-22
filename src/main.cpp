@@ -1,11 +1,13 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <vector>
 #include "headers/course.hpp"
 #include "headers/misc.hpp"
 
 int main() {
     std::string userIn = "", gradebookPath;
+    std::vector<Course> courseList;
 
     //Select a gradebook.
     std::cout << "Please enter in a path to your Gradebook or 'Quit' to exit.\n~> ";
@@ -61,7 +63,13 @@ int main() {
         }
 
         else if (userIn == "l") {
-            printHelp('2');
+            for (Course course : courseList) {
+                std::cout << course.getName() << std::endl;
+                std::cout << "ID: " << course.getID() << std::endl;
+                std::cout << "Roles: " << course.getRoles() << std::endl;
+                std::cout << "Current Grade: " << course.getCurrentGrade() << std::endl;
+                std::cout << "Status: " << course.getStatus() << std::endl;
+            }
         } 
 
         else if (userIn == "e") {
