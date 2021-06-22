@@ -51,6 +51,7 @@ int main() {
             userIn[i] = tolower(userIn[i]);
         }
         if (userIn == "quit") {
+            gradebook.close();
             return 0;
         }
         //This is gross but I'm bad and can't think of a better way...
