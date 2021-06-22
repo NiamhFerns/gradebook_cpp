@@ -8,15 +8,16 @@ class Course {
         major = 0,
         minor = 1,
         elective = 2,
-        Prerequisit = 3
+        prereq = 3
     };
 
 protected:
-    std::string courseName, subjectArea, courseStatus;
+    std::string courseName, subjectArea, courseStatus = "In Progress...";
     unsigned int courseID;
     //Course roles: [0] Major, [1] Minor, [2] Elective, [3] Prerequisit Course
     bool hiddenCourse, passFail = 0, roles[3]; 
     std::vector<Assessment> assessments;
+
 public:
     Course();
 

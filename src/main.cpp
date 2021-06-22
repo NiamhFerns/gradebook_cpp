@@ -66,8 +66,8 @@ int main() {
             for (Course course : courseList) {
                 std::cout << course.getName() << std::endl;
                 std::cout << "ID: " << course.getID() << std::endl;
-                std::cout << "Roles: " << course.getRoles() << std::endl;
-                std::cout << "Current Grade: " << course.getCurrentGrade() << std::endl;
+                // std::cout << "Roles: " << course.getRoles() << std::endl;
+                // std::cout << "Current Grade: " << course.getCurrentGrade() << std::endl;
                 std::cout << "Status: " << course.getStatus() << std::endl;
             }
         } 
@@ -81,7 +81,7 @@ int main() {
         }
 
         else if (userIn == "a") {
-            printHelp('2');
+            courseList.emplace_back();
         }
         
         else if (userIn == "r") {

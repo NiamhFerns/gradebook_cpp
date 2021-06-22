@@ -9,40 +9,41 @@ Course::Course() {
     getline(std::cin, courseName);
     
     std::cout << "Course ID ~> ";
-    getline(std::cin, courseName);
+    getline(std::cin, tempInput);
+    courseID = stoi(tempInput);
     
-    std::cout << "Is this a pass/fail course (y/N)?\n~> ";
+    //Is this a pass/fail course?
+    std::cout << "Is this a pass/fail course (y/N)? ~> ";
     getline(std::cin, tempInput);
     
     tempInput = tolower(tempInput[0]);
     if (tempInput == "y") {
         passFail = 1;
     }
-
 }
 
-void Course::addAssessment(std::string name, unsigned short maxGrade, unsigned short weighting) {
+// void Course::addAssessment(std::string name, unsigned short maxGrade, unsigned short weighting) {
 
-}
+// }
 
-void Course::setRoles() {
+// void Course::setRoles() {
 
-}
+// }
 
 std::string Course::getName() { return courseName; }
 
 unsigned int Course::getID() { return courseID; }
 
-int Course::getCurrentGrade() {
+// int Course::getCurrentGrade() {
+//     return 0;
+// }
 
-}
-
-std::string Course::getRoles() {
-
-}
+// std::string Course::getRoles() {
+//     return "Not written yet. c:";
+// }
 
 unsigned short Course::getMarks(std::string assessment) {
-
+    return 0;
 }
 
 std::string Course::getStatus() { return courseStatus; }
@@ -61,19 +62,15 @@ void Course::listAssessments() {
     }
 }
 
-void removeCourse(int courseID) {
+// void removeCourse(int courseID) {
     
-}
+// }
 
-void addCourse(std::string courseName, int courseID, unsigned char role) {
+// void viewCourse(int courseID) {
 
-}
+// }
 
-void viewCourse(int courseID) {
+// void listCourses(bool showHidden) {
 
-}
-
-void listCourses(bool showHidden) {
-
-}
+// }
 
