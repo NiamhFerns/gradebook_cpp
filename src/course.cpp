@@ -26,7 +26,7 @@ void Course::addAssessment(std::string name, unsigned short maxGrade, unsigned s
 }
 
 void Course::setRoles() {
-
+    
 }
 
 std::string Course::getName() { return courseName; }

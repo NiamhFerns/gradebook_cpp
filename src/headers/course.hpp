@@ -15,7 +15,7 @@ protected:
     std::string courseName, subjectArea, courseStatus;
     unsigned int courseID;
     //Course roles: [0] Major, [1] Minor, [2] Elective, [3] Prerequisit Course
-    bool hiddenCourse, passFail = 0, roles[3]; 
+    bool hiddenCourse, passFail = 0, roles[4]; 
     std::vector<Assessment> assessments;
 public:
     Course();
