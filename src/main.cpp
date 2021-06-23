@@ -51,6 +51,16 @@ int main() {
     bool QuitRequested = 0;
     while(!QuitRequested) {
         callMenu(mainMenu);
+    }
+
+    //save the text file
+    //close the text file
+
+    return 0;
+}
+
+
+
 
         // std::cout << "~> ";
         // getline(std::cin, userIn);
@@ -113,11 +123,3 @@ int main() {
         // else {
         //     std::cout << "Oops! That is not an option. ('h' for help)\n";
         // }
-        
-    }
-
-    //save the text file
-    //close the text file
-
-    return 0;
-}
