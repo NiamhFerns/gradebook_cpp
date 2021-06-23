@@ -8,6 +8,7 @@
 int main() {
     std::string userIn = "", gradebookPath;
     std::vector<Course> courseList;
+    Course *currentlyViewing;
 
     //Select a gradebook.
     std::cout << "Please enter in a path to your Gradebook or 'Quit' to exit.\n~> ";
@@ -74,10 +75,36 @@ int main() {
 
         else if (userIn == "e") {
             printHelp('1');
-            // int courseID;
-            // getchar();
-            // std::cin >> courseID;
-            // viewCourse(courseID);
+            int courseID;
+            getchar();
+            std::cin >> courseID;
+            
+            //look for the course ID
+            int i = 0;
+            bool idFound = 0;
+            for (Course course : courseList) {
+                if (course.getID() == courseID) {
+                    idFound = 1;
+                    break;
+                }
+                i++;
+            }
+            if (!idFound) {
+                std::cout << "We could not find a course with that ID.\nPlease try again.\n";
+            }
+            else {
+                currentlyViewing = &courseList[i];
+                bool quitToMenu = 0;
+                while (!quitToMenu) {
+                    //This is gross. Dear fucking god this is gross. Stop. Just stop.
+                    //TODO
+                    //Split menu functionallity into a showMenu() function.
+                    //showMenu() will take in an option for which menu to show.
+                    //Just map them to a switch please. Ifs are gross.
+                }
+            }
+
+
         }
 
         else if (userIn == "a") {
