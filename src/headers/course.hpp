@@ -25,6 +25,7 @@ public:
     Course();
 
     void setRoles();
+    void setVisibility();
 
     void addAssessment(std::string name, unsigned short maxGrade, unsigned short weighting);
 
@@ -34,6 +35,7 @@ public:
     std::string getRoles();
     unsigned short getMarks(std::string assessment);
     std::string getStatus();
+    bool getVisibility();
 
     void listAssessments();
 };

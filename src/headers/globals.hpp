@@ -7,11 +7,13 @@
 #include "course.hpp"
 #include "menu.hpp"
 
-class Globals {
-public:
+struct Globals {
     static std::vector<Course> COURSE_LIST;
     static MENU_Main MAIN_MENU;
     static Course *CURRENTLY_VIEWING;
+    static bool showHidden;
 };
+
+void quitRequested(unsigned short mode);
 
 #endif

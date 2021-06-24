@@ -6,6 +6,7 @@
 #include <vector>
 #include "course.hpp"
 #include "globals.hpp"
+#include "misc.hpp"
 
 class MENU_Main {
 public:
@@ -24,6 +25,7 @@ class MENU_CourseEntry : public MENU_Main {
     void option3(); //Remove Assessment
     void option4(); //Change a grade.
     void option5(); //Change Weighting
+    void help();
 };
 
 template <typename T>
