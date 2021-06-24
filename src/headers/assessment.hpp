@@ -1,3 +1,6 @@
+#ifndef _ASSESSMENT_H
+#define _ASSESSMENT_H
+
 #include <string>
 #include <iostream>
 class Assessment{
@@ -16,3 +19,5 @@ public:
     
     std::string getLabel();
 };
+
+#endif

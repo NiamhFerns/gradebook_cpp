@@ -1,3 +1,6 @@
+#ifndef _COURSE_H
+#define _COURSE_H
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -39,3 +42,5 @@ void removeCourse(int courseID);
 void addCourse(std::string courseName, int courseID, unsigned char role);
 void viewCourse(int courseID);
 void listCourses(bool showHidden);
+
+#endif

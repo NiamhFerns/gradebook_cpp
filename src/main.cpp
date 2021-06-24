@@ -4,14 +4,11 @@
 #include <vector>
 #include "headers/course.hpp"
 #include "headers/menu.hpp"
+#include "headers/globals.hpp"
 #include "headers/misc.hpp"
-    
-MENU_Main mainMenu;
-Course *currentlyViewing;
 
 int main() {
-    std::string userIn = "", gradebookPath;    
-    std::vector<Course> courseList;
+    std::string userIn = "", gradebookPath;
 
     //Select a gradebook.
     std::cout << "Please enter in a path to your Gradebook or 'Quit' to exit.\n~> ";
@@ -50,7 +47,7 @@ int main() {
     std::cout << "*************************************\n";
     bool QuitRequested = 0;
     while(!QuitRequested) {
-        callMenu(mainMenu);
+        callMenu(Globals::MAIN_MENU);
     }
 
     //save the text file
