@@ -3,6 +3,8 @@ project(gradebook)
 
 set (
     HEADER_FILES
+    src/headers/globals.hpp
+    src/headers/menu.hpp
     src/headers/course.hpp
     src/headers/assessment.hpp
     src/headers/misc.hpp
@@ -11,8 +13,10 @@ set (
 set(
     SRC_FILES
     src/main.cpp
-    src/assessment.cpp
+    src/globals.cpp
+    src/menu.cpp
     src/course.cpp
+    src/assessment.cpp
     src/misc.cpp
 )
 
