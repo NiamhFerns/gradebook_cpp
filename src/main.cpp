@@ -2,9 +2,8 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include "headers/course.hpp"
 #include "headers/menu.hpp"
-#include "headers/globals.hpp"
+#include "headers/course.hpp"
 #include "headers/misc.hpp"
 
 int main() {
@@ -47,7 +46,7 @@ int main() {
     std::cout << "*************************************\n";
     bool QuitRequested = 0;
     while(!QuitRequested) {
-        callMenu(Globals::MAIN_MENU);
+        callMenu();
     }
 
     //save the text file
