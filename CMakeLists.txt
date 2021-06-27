@@ -13,7 +13,7 @@ set (
 set(
     SRC_FILES
     src/main.cpp
-    src/globals.cpp
+    #src/globals.cpp
     src/menu.cpp
     src/course.cpp
     src/assessment.cpp
