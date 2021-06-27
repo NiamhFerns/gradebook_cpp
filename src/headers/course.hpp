@@ -7,13 +7,6 @@
 #include "assessment.hpp"
 
 class Course {
-    enum rolesIndex {
-        major = 0,
-        minor = 1,
-        elective = 2,
-        prereq = 3
-    };
-
 protected:
     std::string courseName, subjectArea, courseStatus = "In Progress...";
     unsigned int courseID;
@@ -24,10 +17,10 @@ protected:
 public:
     Course();
 
+    void addAssessment(std::string name, unsigned short maxGrade, unsigned short weighting);
+
     void setRoles();
     void setVisibility();
-
-    void addAssessment(std::string name, unsigned short maxGrade, unsigned short weighting);
 
     std::string getName();
     unsigned int getID();
@@ -37,7 +30,7 @@ public:
     std::string getStatus();
     bool getVisibility();
 
-    void listAssessments();
+    void getAssessments();
 };
 
 void removeCourse(int courseID);

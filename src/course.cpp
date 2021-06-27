@@ -22,25 +22,23 @@ Course::Course() {
     }
 }
 
-// void Course::addAssessment(std::string name, unsigned short maxGrade, unsigned short weighting) {
+void Course::addAssessment(std::string name, unsigned short maxGrade, unsigned short weighting) {
 
-// }
+}
 
-// void Course::setRoles() {
-
-// }
+//GETTERS
 
 std::string Course::getName() { return courseName; }
 
 unsigned int Course::getID() { return courseID; }
 
-// int Course::getCurrentGrade() {
-//     return 0;
-// }
+int Course::getCurrentGrade() {
+    return 0;
+}
 
-// std::string Course::getRoles() {
-//     return "Not written yet. c:";
-// }
+std::string Course::getRoles() {
+    return "Not written yet. c:";
+}
 
 unsigned short Course::getMarks(std::string assessment) {
     return 0;
@@ -48,7 +46,11 @@ unsigned short Course::getMarks(std::string assessment) {
 
 std::string Course::getStatus() { return courseStatus; }
 
-void Course::listAssessments() {
+bool getVisibility() {
+    return 0;
+}
+
+void Course::getAssessments() {
     int i = 0;
     if (!assessments.empty()) {
         for (Assessment assessment : assessments) {
@@ -61,6 +63,18 @@ void Course::listAssessments() {
         std::cout << "You currently have no assessments added to this course.\n";
     }
 }
+
+//SETTERS
+
+void Course::setRoles() {
+
+}
+
+void Course::setVisibility() {
+    hiddenCourse = 0;
+}
+
+
 
 // void removeCourse(int courseID) {
     
