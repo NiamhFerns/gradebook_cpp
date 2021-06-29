@@ -5,6 +5,7 @@
 #include "headers/menu.hpp"
 #include "headers/course.hpp"
 #include "headers/misc.hpp"
+#include "headers/globals.hpp"
 
 int main() {
     std::string userIn = "", gradebookPath;
@@ -28,7 +29,7 @@ int main() {
     std::cout << "*************************************\n";
     bool QuitRequested = 0;
     while(!QuitRequested) {
-        callMenu();
+        callMenu(mainMenu);
     }
 
     //save the text file
