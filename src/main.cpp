@@ -20,9 +20,8 @@ int main() {
     std::cout << "      Welcome to the Gradebook.\n";
     std::cout << "     What would you like to do?\n";
     std::cout << "*************************************\n";
-    bool QuitRequested = 0;
-    while(!QuitRequested) {
-        callMenu();
+    while(!QUIT_REQUEST) {
+        callMenu(MAIN_MENU);
     }
 
     //save the text file
