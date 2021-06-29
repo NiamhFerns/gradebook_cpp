@@ -3,7 +3,10 @@
 
 #include <iostream>
 #include "globals.hpp"
-#include "misc.hpp"
+
+// template <typename T>
+void callMenu();
+void printHelp(unsigned char i);
 
 class MENU_Main {
 public:
@@ -18,7 +21,5 @@ public:
 
 //initialise menus
 
-// template <typename T>
-void callMenu();
 
 #endif
