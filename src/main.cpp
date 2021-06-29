@@ -1,7 +1,4 @@
-
-#include "headers/globals.hpp"
 #include "headers/init.hpp"
-#include "headers/menu.hpp"
 
 int main() {
     std::string userIn = "", gradebookPath;

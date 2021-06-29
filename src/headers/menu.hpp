@@ -1,8 +1,7 @@
 #ifndef _MENU_H
 #define _MENU_H
 
-#include <iostream>
-#include "globals.hpp"
+#include "init.hpp"
 
 // template <typename T>
 void callMenu();
@@ -18,8 +17,5 @@ public:
     void help();
     void quit();
 };
-
-//initialise menus
-
 
 #endif

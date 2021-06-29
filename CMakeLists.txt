@@ -4,7 +4,6 @@ project(gradebook)
 set (
     HEADER_FILES
     src/headers/init.hpp
-    src/headers/globals.hpp
     src/headers/menu.hpp
     src/headers/course.hpp
     src/headers/assessment.hpp
