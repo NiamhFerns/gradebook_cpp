@@ -2,10 +2,8 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include "headers/menu.hpp"
-#include "headers/course.hpp"
-#include "headers/misc.hpp"
 #include "headers/globals.hpp"
+#include "headers/menu.hpp"
 
 int main() {
     std::string userIn = "", gradebookPath;
@@ -29,7 +27,7 @@ int main() {
     std::cout << "*************************************\n";
     bool QuitRequested = 0;
     while(!QuitRequested) {
-        callMenu(mainMenu);
+        callMenu();
     }
 
     //save the text file

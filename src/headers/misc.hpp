@@ -5,10 +5,11 @@
 #include <iomanip>
 #include <fstream>
 #include <string>
+#include "globals.hpp"
 
-static std::fstream GRADEBOOK;
 
 void printHelp(unsigned char i);
 bool bookInit(std::string path);
+void loadCourses();
 
 #endif

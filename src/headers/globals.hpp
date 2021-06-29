@@ -1,3 +1,8 @@
-#include "menu.hpp"
+#ifndef _GLOBALS_H
+#define _GLOBALS_H
 
-MENU_Main mainMenu;
+#include <fstream>
+
+static std::fstream GRADEBOOK;
+
+#endif

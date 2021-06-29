@@ -53,5 +53,11 @@ bool bookInit(std::string path) {
 
     GRADEBOOK.open(path.c_str(), std::fstream::in | std::fstream::app);
 
-    return 0;
+    loadCourses();
+
+    return 1;
+}
+
+void loadCourses() {
+
 }
