@@ -1,5 +1,8 @@
 #include "headers/init.hpp"
 
+Course *CURRENTLY_VIEWING = nullptr;
+bool QUIT_REQUEST = 0;
+
 int main() {
     std::string userIn = "", gradebookPath;
 

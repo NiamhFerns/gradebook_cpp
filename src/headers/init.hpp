@@ -10,9 +10,9 @@ void loadCourses();
 
 //our global variables
 static std::fstream GRADEBOOK;
-static std::vector<Course> COURSELIST;
-static Course *CURRENTLY_VIEWING = nullptr;
-static bool QUIT_REQUEST = 0;
+static std::vector<Course> COURSE_LIST;
+extern Course *CURRENTLY_VIEWING;
+extern bool QUIT_REQUEST;
 
 static MENU_Main MAIN_MENU;
 

@@ -27,6 +27,9 @@ bool bookInit(std::string path) {
 
     loadCourses();
 
+    CURRENTLY_VIEWING = nullptr;
+    QUIT_REQUEST = 0;
+
     return 1;
 }
 

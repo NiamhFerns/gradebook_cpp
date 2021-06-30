@@ -1,7 +1,20 @@
 #include "headers/init.hpp"
 
 void MENU_Main::option1() { //list courses.
-    std::cout << "Option 1\n";
+    if (!COURSE_LIST.empty()) {
+        int i = 1;
+        for (Course course : COURSE_LIST) {
+            std::cout << "<" << i << "> " << course.getID() << " - " <<course.getName() << std::endl;
+            std::cout << " ┣  Status: " << course.getStatus() << std::endl;
+            std::cout << " ┣  Current Grade: " << course.getCurrentGrade() << std::endl;
+            std::cout << " ┗\n";
+            ++i;
+        }
+    }
+
+    else {
+        std::cout << "You currently have no courses added.\n";
+    }
 }
 
 void MENU_Main::option2() { //view course
@@ -10,7 +23,7 @@ void MENU_Main::option2() { //view course
 }
 
 void MENU_Main::option3() { //add a course
-    std::cout << "Option 3\n";
+    COURSE_LIST.emplace_back();
 }
 
 void MENU_Main::option4() { //remove a course

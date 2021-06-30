@@ -6,6 +6,7 @@ Course::Course() {
     
     //unsigned int courseID, std::string courseName, bool hidden, bool passfail
     std::cout << "Course Name ~> ";
+    getchar(); //clear buffer.
     getline(std::cin, courseName);
     
     std::cout << "Course ID ~> ";
