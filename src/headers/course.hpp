@@ -16,8 +16,10 @@ protected:
 
 public:
     Course();
+    Course(std::string courseData[]);
 
-    void addAssessment(std::string name, unsigned short maxGrade, unsigned short weighting);
+    void addAssessment(std::string name, unsigned short maxGrade, unsigned short weighting); //user add
+    void addAssessment(std::string assessmentData[]); //when loading
 
     void setRoles();
     void setVisibility();

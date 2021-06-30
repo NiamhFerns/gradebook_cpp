@@ -6,7 +6,7 @@
 
 bool bookInit(std::string path);
 void loadCourses();
-
+void splitString(std::string output[], std::string input, char delim);
 
 //our global variables
 static std::fstream GRADEBOOK;

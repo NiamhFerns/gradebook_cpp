@@ -23,7 +23,15 @@ Course::Course() {
     }
 }
 
+Course::Course(std::string courseData[]) {
+
+}
+
 void Course::addAssessment(std::string name, unsigned short maxGrade, unsigned short weighting) {
+
+}
+
+void Course::addAssessment(std::string assessmentData[]) {
 
 }
 
