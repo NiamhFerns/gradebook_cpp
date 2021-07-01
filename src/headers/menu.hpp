@@ -6,9 +6,12 @@
 #include <string>
 #include <vector>
 
+void quit();
+
 template <typename T>
-void callMenu(T menu) {
+void callMenu(T menu, std::string prompt) {
     int optionSelection;
+    std::cout << prompt;
     std::cin >> optionSelection; //DO NOT ENTER LETTERS
 
     switch (optionSelection) {
@@ -33,7 +36,7 @@ void callMenu(T menu) {
             break;
 
         case -1:
-            menu.quit();
+            quit();
             break;
 
         default:
@@ -50,7 +53,18 @@ public:
     void option4();
     void option5();
     void help();
-    void quit();
+    void printPrompt();
+};
+
+class MENU_Course {
+public:
+    void option1();
+    void option2();
+    void option3();
+    void option4();
+    void option5();
+    void help();
+    void printPrompt();
 };
 
 #endif

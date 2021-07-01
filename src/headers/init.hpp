@@ -4,16 +4,17 @@
 #include "menu.hpp"
 #include "course.hpp"
 
-bool bookInit(std::string path);
+bool bookInit();
 void loadCourses();
 void splitString(std::string output[], std::string input, char delim);
 
 //our global variables
-static std::fstream GRADEBOOK;
-static std::vector<Course> COURSE_LIST;
+extern std::fstream GRADEBOOK;
+extern std::vector<Course> COURSE_LIST;
 extern Course *CURRENTLY_VIEWING;
 extern bool QUIT_REQUEST;
 
 static MENU_Main MAIN_MENU;
+static MENU_Course COURSE_MENU;
 
 #endif

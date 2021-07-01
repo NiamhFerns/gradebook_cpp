@@ -24,10 +24,29 @@ Course::Course() {
 }
 
 Course::Course(std::string courseData[]) {
+    //input string from gradebook.txt: "name;id;subjectArea;status;hidden;passfail;roles"
+    enum { //index for each value in courseData[]
+        E_name = 0,
+        E_id = 1,
+        E_subject = 2,
+        E_status = 3,
+        E_hidden = 4,
+        E_passFail = 5,
+        E_roles = 6
+    };
 
+    courseName = courseData[E_name];
+    courseID = stoi(courseData[E_id]);
+    subjectArea = courseData[E_subject];
+    courseStatus = courseData[E_status];
+    hiddenCourse = stoi(courseData[E_hidden]);
+    passFail = stoi(courseData[E_passFail]);
+    for (int i = 0; i < 4; ++i) {
+        roles[i] = courseData[E_roles][i];
+    }
 }
 
-void Course::addAssessment(std::string name, unsigned short maxGrade, unsigned short weighting) {
+void Course::addAssessment() {
 
 }
 
@@ -55,8 +74,8 @@ unsigned short Course::getMarks(std::string assessment) {
 
 std::string Course::getStatus() { return courseStatus; }
 
-bool getVisibility() {
-    return 0;
+bool Course::getVisibility() {
+    return hiddenCourse;
 }
 
 void Course::getAssessments() {
@@ -80,7 +99,7 @@ void Course::setRoles() {
 }
 
 void Course::setVisibility() {
-    hiddenCourse = 0;
+    hiddenCourse = !hiddenCourse;
 }
 
 
