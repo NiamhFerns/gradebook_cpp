@@ -47,11 +47,21 @@ Course::Course(std::string courseData[]) {
 }
 
 void Course::addAssessment() {
+    std::string label, dueDate;
+    unsigned short grade, weighting;
 
+    std::cout << "What is the name of this course? ~> ";
+    getline(std::cin, label);
+    std::cout << "When is this course due? ~> ";
+    getline(std::cin, dueDate);
+    std::cout << "What is the max grade and weighting for this course. ~> ";
+    std::cin >> grade >> weighting;
+
+    assessments.emplace_back(label, dueDate, "unset", 0, grade, weighting, 100); 
 }
 
 void Course::addAssessment(std::string assessmentData[]) {
-
+    
 }
 
 //GETTERS

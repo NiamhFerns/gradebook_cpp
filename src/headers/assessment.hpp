@@ -11,13 +11,23 @@ private:
     bool multiPart;
 
 public:
-    Assessment();
+    Assessment
+    (
+        std::string labelIn, 
+        std::string dueDateIn, 
+        std::string handinDateIn,
+        unsigned short gradeIn,
+        unsigned short maxGradeIn,
+        unsigned short weightingIn,
+        unsigned short latePenaltyIn
+    );
+
+    std::string getLabel();
 
     //takes in the amount of parts for multipart assessments.
     void setMultiPart(unsigned short numParts);
     void setAssessedGrade(unsigned short grade);
     
-    std::string getLabel();
 };
 
 #endif
