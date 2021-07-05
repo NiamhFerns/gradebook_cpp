@@ -50,9 +50,10 @@ void Course::addAssessment() {
     std::string label, dueDate;
     unsigned short grade, weighting;
 
-    std::cout << "What is the name of this course? ~> ";
+    std::cout << "What is the assessment label? ~> ";
+    getchar(); //buffer clear;
     getline(std::cin, label);
-    std::cout << "When is this course due? ~> ";
+    std::cout << "When is this assessment due? ~> ";
     getline(std::cin, dueDate);
     std::cout << "What is the max grade and weighting for this course. ~> ";
     std::cin >> grade >> weighting;

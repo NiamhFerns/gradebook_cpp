@@ -102,12 +102,25 @@ void MENU_Main::help() {
     "e <courseID> - View a Course (From here you can add/remove assessments.)\n"; 
 }
 
-void MENU_Course::option1() {
+void MENU_Course::option1() { //list assessments
+    if (!CURRENTLY_VIEWING->assessments.empty()) {
+        int i = 1;
+        for (Assessment assessment : CURRENTLY_VIEWING->assessments) {
+            std::cout << "<" << i << "> " << assessment.getLabel() << std::endl;
+            // std::cout << " ┣  Status: " << course.getStatus() << std::endl;
+            // std::cout << " ┣  Current Grade: " << course.getCurrentGrade() << std::endl;
+            std::cout << " ┗\n";
+            ++i;
+        }
+    }
 
+    else {
+        std::cout << "You currently have no assessments added.\n";
+    }
 }
 
 void MENU_Course::option2() {
-
+    CURRENTLY_VIEWING->addAssessment();
 }
 
 void MENU_Course::option3() {

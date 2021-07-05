@@ -12,7 +12,7 @@ private:
 
 public:
     Assessment
-    (
+    (  
         std::string labelIn, 
         std::string dueDateIn, 
         std::string handinDateIn,
@@ -27,7 +27,6 @@ public:
     //takes in the amount of parts for multipart assessments.
     void setMultiPart(unsigned short numParts);
     void setAssessedGrade(unsigned short grade);
-    
 };
 
 #endif
