@@ -1,5 +1,19 @@
 #include "headers/assessment.hpp"
 
+Assessment::Assessment
+(
+        std::string labelIn, 
+        std::string dueDateIn, 
+        std::string handinDateIn,
+        unsigned short gradeIn,
+        unsigned short maxGradeIn,
+        unsigned short weightingIn,
+        unsigned short latePenaltyIn
+)
+{
+    
+}
+
 std::string Assessment::getLabel() {
     return label;
 }
