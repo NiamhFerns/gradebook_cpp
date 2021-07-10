@@ -124,7 +124,22 @@ void MENU_Course::option2() {
 }
 
 void MENU_Course::option3() {
+    std::string toRemove = "";
+    getchar();
+    std::cout << "Which course would you like to remove? ~> ";
+    std::getline(std::cin, toRemove);
+    bool found = 0;
 
+    for (int i = 0; i < CURRENTLY_VIEWING->assessments.size(); ++i) {
+        if (CURRENTLY_VIEWING->assessments[i].getLabel() == toRemove) {
+            found = true;
+            CURRENTLY_VIEWING->assessments.erase(CURRENTLY_VIEWING->assessments.begin() + i);
+            std::cout << toRemove << " has been deleted.\n";
+            break;
+        }
+    }
+
+    if (!found) std::cout << "Sorry, but we could not find that assessment.\n";
 }
 
 void MENU_Course::option4() {
@@ -134,6 +149,15 @@ void MENU_Course::option4() {
 void MENU_Course::option5() {
 
 }
+
+void MENU_Course::option6() {
+
+}
+
+void MENU_Course::option7() {
+
+}
+
 
 void MENU_Course::help() {
     std::cout << 
