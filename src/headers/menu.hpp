@@ -63,6 +63,8 @@ public:
     void option3();
     void option4();
     void option5();
+    void option6();
+    void option7();
     void help();
     void printPrompt();
 };
