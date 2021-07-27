@@ -23,6 +23,7 @@ public:
     );
 
     std::string getLabel();
+    unsigned short getAssessedGrade(); 
 
     //takes in the amount of parts for multipart assessments.
     void setMultiPart(unsigned short numParts);

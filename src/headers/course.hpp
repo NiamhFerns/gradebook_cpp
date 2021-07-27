@@ -26,7 +26,7 @@ public:
 
     std::string getName();
     unsigned int getID();
-    int getCurrentGrade();
+    std::string getCurrentGrade();
     std::string getRoles();
     unsigned short getMarks(std::string assessment);
     std::string getStatus();

@@ -24,6 +24,8 @@ std::string Assessment::getLabel() {
     return label;
 }
 
+unsigned short Assessment::getAssessedGrade() { return assessedGrade; }
+
 void Assessment::setAssessedGrade(unsigned short grade) {
         if (grade > maxGrade) {
             std::cout << "That is not a valid grade. Please try again.\n";
@@ -32,3 +34,4 @@ void Assessment::setAssessedGrade(unsigned short grade) {
 
         assessedGrade = grade;
 }
+

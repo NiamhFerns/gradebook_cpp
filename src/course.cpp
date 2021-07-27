@@ -71,8 +71,15 @@ std::string Course::getName() { return courseName; }
 
 unsigned int Course::getID() { return courseID; }
 
-int Course::getCurrentGrade() {
-    return 0;
+std::string Course::getCurrentGrade() {
+    double grade = 0.0f;
+    if (grade == -1.0) return "not done yet";
+    
+    for (int i = 0; i < assessments.size(); ++i) {
+        double toAdd = assessments[i].getAssessedGrade();
+    }
+
+    //return grade;
 }
 
 std::string Course::getRoles() {
@@ -112,18 +119,3 @@ void Course::setRoles() {
 void Course::setVisibility() {
     hiddenCourse = !hiddenCourse;
 }
-
-
-
-// void removeCourse(int courseID) {
-    
-// }
-
-// void viewCourse(int courseID) {
-
-// }
-
-// void listCourses(bool showHidden) {
-
-// }
-
