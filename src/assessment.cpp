@@ -11,17 +11,10 @@ Assessment::Assessment
     unsigned short latePenaltyIn
 )
 {
-    label = labelIn;
-    dueDate = dueDateIn;
-    handinDate = handinDateIn;
-    assessedGrade = gradeIn;
-    maxGrade = maxGradeIn;
-    weighting = weightingIn;
-    latePenalty = latePenaltyIn;
+    
 }
 
 std::string Assessment::getLabel() {
-    return label;
 }
 
 unsigned short Assessment::getAssessedGrade() { return assessedGrade; }

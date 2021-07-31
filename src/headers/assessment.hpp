@@ -3,12 +3,19 @@
 
 #include <string>
 #include <iostream>
+
+// struct PartStats { //struct of 
+//     unsigned short partGrade;
+//     std::string label, dueDate, handinDate;
+//     bool droppedFromScore;
+// };
+
 class Assessment{
 private:
     //weighting is stored as a percentage but can be converted later.
-    unsigned short assessedGrade = 0, maxGrade, weighting, latePenalty, parts = 1;
-    std::string label, dueDate, handinDate;
-    bool multiPart;
+    unsigned short assessedGrade = 0, maxGrade = 100, weighting, latePenalty;
+    bool multiPart = 0;
+    //TO DO mark an assessmentStats tuple for the different parts. Default = 1.
 
 public:
     Assessment
