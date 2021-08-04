@@ -106,7 +106,7 @@ void MENU_Course::option1() { //list assessments
     if (!CURRENTLY_VIEWING->assessments.empty()) {
         int i = 1;
         for (Assessment assessment : CURRENTLY_VIEWING->assessments) {
-            std::cout << "<" << i << "> " << assessment.getLabel() << std::endl;
+            std::cout << "<" << i << "> " << assessment.getMainLabel() << std::endl;
             // std::cout << " ┣  Status: " << course.getStatus() << std::endl;
             // std::cout << " ┣  Current Grade: " << course.getCurrentGrade() << std::endl;
             std::cout << " ┗\n";
@@ -131,7 +131,7 @@ void MENU_Course::option3() {
     bool found = 0;
 
     for (int i = 0; i < CURRENTLY_VIEWING->assessments.size(); ++i) {
-        if (CURRENTLY_VIEWING->assessments[i].getLabel() == toRemove) {
+        if (CURRENTLY_VIEWING->assessments[i].getMainLabel() == toRemove) {
             found = true;
             CURRENTLY_VIEWING->assessments.erase(CURRENTLY_VIEWING->assessments.begin() + i);
             std::cout << toRemove << " has been deleted.\n";

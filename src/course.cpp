@@ -72,14 +72,7 @@ std::string Course::getName() { return courseName; }
 unsigned int Course::getID() { return courseID; }
 
 std::string Course::getCurrentGrade() {
-    double grade = 0.0f;
-    if (grade == -1.0) return "not done yet";
-    
-    for (int i = 0; i < assessments.size(); ++i) {
-        double toAdd = assessments[i].getAssessedGrade();
-    }
-
-    //return grade;
+    return "";
 }
 
 std::string Course::getRoles() {
@@ -99,8 +92,21 @@ bool Course::getVisibility() {
 void Course::getAssessments() {
     int i = 0;
     if (!assessments.empty()) {
+        //convert this to a point pls...
         for (Assessment assessment : assessments) {
-            std::cout << i + 1 << " - " << assessment.getLabel() << std::endl;
+            //if the assessments are only one, print the mainlable as the only label. 
+            //else print every label in assessment under the main label as the assessment name.
+            // i - Main Label
+            //    -> subassessment 1
+            //    -> subassessment 2
+            //    -> etc etc
+            std::cout << i + 1 << " - " << assessment.getMainLabel() << std::endl;
+            if (assessment.getNumberOfParts() > 1) {
+                for (int j = 0; j < assessment.getNumberOfParts(); ++j) {
+                    std::cout << "    " << assessment.getLabel(j);
+                }
+            }
+            
             ++i;
         }
     }

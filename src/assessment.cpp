@@ -31,8 +31,16 @@ Assessment::Assessment(std::string labelIn,
 
 }
 
-std::string Assessment::getLabel() {
+std::string Assessment::getMainLabel() {
+    return mainLabel;
+}
 
+std::string Assessment::getLabel(int labelIndex) {
+    return assessmentStats[labelIndex].label;
+}
+
+int Assessment::getNumberOfParts() {
+    return assessmentStats.size();
 }
 
 unsigned short Assessment::getAssessedGrade() { 
