@@ -45,7 +45,7 @@ public:
     std::string getMainLabel();
     std::string getLabel(int labelIndex);
     int getNumberOfParts();
-    unsigned short getAssessedGrade(); 
+    unsigned short getAssessedGrade(int assessmentIndex); 
 
     //takes in the amount of parts for multipart assessments.
     void setAssessedGrade(unsigned short grade);

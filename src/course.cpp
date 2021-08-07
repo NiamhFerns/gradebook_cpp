@@ -89,17 +89,19 @@ bool Course::getVisibility() {
     return hiddenCourse;
 }
 
-void Course::getAssessments() {
+void Course::getAssessments() { // This is currently unused until port to ncurses.
     int i = 0;
     if (!assessments.empty()) {
         //convert this to a point pls...
         for (Assessment assessment : assessments) {
+            
             //if the assessments are only one, print the mainlable as the only label. 
             //else print every label in assessment under the main label as the assessment name.
             // i - Main Label
             //    -> subassessment 1
             //    -> subassessment 2
             //    -> etc etc
+            
             std::cout << i + 1 << " - " << assessment.getMainLabel() << std::endl;
             if (assessment.getNumberOfParts() > 1) {
                 for (int j = 0; j < assessment.getNumberOfParts(); ++j) {

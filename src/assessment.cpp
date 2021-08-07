@@ -6,7 +6,11 @@ PartStats::PartStats (unsigned short partGradeIn,
                       std::string handinDateIn,
                       bool dropped) 
 {
-
+    label = labelIn;
+    partGrade = partGradeIn;
+    dueDate = dueDateIn;
+    handinDate = handinDateIn;
+    droppedFromScore = dropped;
 };
 
 Assessment::Assessment(std::string labelIn, 
@@ -43,8 +47,8 @@ int Assessment::getNumberOfParts() {
     return assessmentStats.size();
 }
 
-unsigned short Assessment::getAssessedGrade() { 
-    return 0; //magic owo
+unsigned short Assessment::getAssessedGrade(int assessmentIndex) {  
+    return assessmentStats[assessmentIndex].partGrade;
 }
 
 void Assessment::setAssessedGrade(unsigned short grade) {

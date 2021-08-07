@@ -70,7 +70,7 @@ void MENU_Main::option4() { //remove a course
     }
 }
 
-void MENU_Main::option5() { //hide/unhide a course
+void MENU_Main::option5() { // hide/unhide a course
     int id;
     std::string confirmation = "";
 
@@ -102,15 +102,26 @@ void MENU_Main::help() {
     "e <courseID> - View a Course (From here you can add/remove assessments.)\n"; 
 }
 
-void MENU_Course::option1() { //list assessments
+void MENU_Course::option1() { // list assessments (THIS IS THE MAIN VERSION TILL NCURSES)
     if (!CURRENTLY_VIEWING->assessments.empty()) {
         int i = 1;
         for (Assessment assessment : CURRENTLY_VIEWING->assessments) {
             std::cout << "<" << i << "> " << assessment.getMainLabel() << std::endl;
-            // std::cout << " ┣  Status: " << course.getStatus() << std::endl;
-            // std::cout << " ┣  Current Grade: " << course.getCurrentGrade() << std::endl;
-            std::cout << " ┗\n";
-            ++i;
+            //If    the number of assessment part is == 1, list assessment under mainLabel then continue the loop.
+            //Else  Loop through each assessmentPart and list them one by one.
+            if (assessment.getNumberOfParts() == 1) {
+                std::cout << " ┣  Status: [DUE/OVERDUE/GRADED/SUBMITTED/LATE SUBMISSION]\n"  << std::endl;
+                std::cout << " ┣  Current Grade: " << assessment.getAssessedGrade(i) << std::endl;
+                std::cout << " ┗\n";
+                continue;
+            }
+
+            for (int i = 0; i < assessment.getNumberOfParts(); ++i) {
+                std::cout << " ┗ " << assessment.getMainLabel() << std::endl;
+                std::cout << "  ┣  Current Grade: " << assessment.getAssessedGrade(i) << std::endl;
+                std::cout << "  ┗\n";
+                ++i;
+            }
         }
     }
 
