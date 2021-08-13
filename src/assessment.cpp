@@ -1,9 +1,7 @@
 #include "headers/assessment.hpp"
 
-PartStats::PartStats (unsigned short partGradeIn,
-                      std::string labelIn,
-                      std::string dueDateIn,
-                      std::string handinDateIn,
+PartStats::PartStats (unsigned short partGradeIn, std::string labelIn, 
+                      std::string dueDateIn, std::string handinDateIn,
                       bool dropped) 
 {
     label = labelIn;
@@ -13,12 +11,9 @@ PartStats::PartStats (unsigned short partGradeIn,
     droppedFromScore = dropped;
 };
 
-Assessment::Assessment(std::string labelIn, 
-                       std::string dueDateIn, 
-                       std::string handinDateIn,
-                       unsigned short gradeIn,
-                       unsigned short maxGradeIn,
-                       unsigned short weightingIn,
+Assessment::Assessment(std::string labelIn, std::string dueDateIn, 
+                       std::string handinDateIn, unsigned short gradeIn,
+                       unsigned short maxGradeIn, unsigned short weightingIn,
                        unsigned short latePenaltyIn)
 {
     //define the base assessment
@@ -39,6 +34,14 @@ Assessment::Assessment(std::string labelIn,
 void Assessment::addAssessmentPart() {
     std::cout << "TEST MESSAGE: PART ADDED!\n";
     //segmentation fault when trying to add assessment parts here... ;-;
+    assessmentStats.push_back(
+        PartStats(
+            0,
+            "part-" + std::to_string(assessmentStats.size() + 1),
+            "dueDate",
+            "handinDate",
+            0 
+    ));
 }
 
 std::string Assessment::getMainLabel() {

@@ -1,6 +1,7 @@
 #include "headers/init.hpp"
 
-void MENU_Main::option1() { //list courses.
+//list courses.
+void MENU_Main::option1() { 
     if (!COURSE_LIST.empty()) {
         int i = 1;
         for (Course course : COURSE_LIST) {
@@ -18,11 +19,13 @@ void MENU_Main::option1() { //list courses.
     }
 }
 
-void MENU_Main::option2() { //view course
+// Select a course to view.
+void MENU_Main::option2() { 
     int id;
     std::cout << "Which course would you like to view? ~> ";
     std::cin >> id;
 
+    // Find course in COURSE_LIST
     for (int i = 0; i < COURSE_LIST.size(); ++i) {
         if (COURSE_LIST[i].getID() == id) {
             CURRENTLY_VIEWING = &COURSE_LIST[i];
@@ -32,22 +35,27 @@ void MENU_Main::option2() { //view course
 
     if (CURRENTLY_VIEWING == nullptr) std::cout << "That course could not be found.";
     
+    // Enter into COURSE_MENU loop. Leave on quit request.
     while(!QUIT_REQUEST) {
         callMenu(COURSE_MENU, "[" + std::to_string(CURRENTLY_VIEWING->getID()) + "] ~> ");
     }
     
+    // Reset CURRENTLY_VIEWING and QUIT_REQUEST flag.
     CURRENTLY_VIEWING = nullptr;
-    QUIT_REQUEST = 0; //back to main menu and reset QUIT_REQUEST flag.
+    QUIT_REQUEST = 0; 
 }
 
-void MENU_Main::option3() { //add a course
+// Add a course.
+void MENU_Main::option3() { 
     COURSE_LIST.emplace_back();
 }
 
-void MENU_Main::option4() { //remove a course
+// Remove a course.
+void MENU_Main::option4() { 
     int id, i = 0;
     std::string confirmation = "";
 
+    // Get course and confirmation.
     std::cout << "Which course would you like to remove? ~> ";
     std::cin >> id;
 
@@ -55,6 +63,7 @@ void MENU_Main::option4() { //remove a course
     getchar();
     getline(std::cin, confirmation);
 
+    // Find course and print unfound error if needed.
     if (confirmation == "y" || confirmation == "Y") {
         bool courseFound = 0;
         for (int i = 0; i < COURSE_LIST.size(); ++i) {
@@ -70,15 +79,18 @@ void MENU_Main::option4() { //remove a course
     }
 }
 
-void MENU_Main::option5() { // hide/unhide a course
+// Set a courses hidden flag. (Toggle)
+void MENU_Main::option5() { 
     int id;
     std::string confirmation = "";
 
     std::cout << "Which course would you like to change the visibility of? ~> ";
     std::cin >> id;
     
+    // Find the course and 
     for (int i = 0; i < COURSE_LIST.size(); ++i) {
         if (COURSE_LIST[i].getID() == id) {
+            // Set visibility and use CURRENTLY_VIEWING as a found/unfound check.
             CURRENTLY_VIEWING = &COURSE_LIST[i];
             CURRENTLY_VIEWING->setVisibility();
 
@@ -102,12 +114,14 @@ void MENU_Main::help() {
     "e <courseID> - View a Course (From here you can add/remove assessments.)\n"; 
 }
 
-void MENU_Course::option1() { // list assessments (THIS IS THE MAIN VERSION TILL NCURSES)
+// List assessments. (THIS WILL CALL A SEPERATE FUNCTION ON PORT TO NCURSES.)
+void MENU_Course::option1() { 
     if (!CURRENTLY_VIEWING->assessments.empty()) {
         int i = 1;
         for (Assessment assessment : CURRENTLY_VIEWING->assessments) {
             std::cout << "<" << i << "> " << assessment.getMainLabel() << std::endl;
-            //If    the number of assessment part is == 1, list assessment under mainLabel then continue the loop.
+            //If    the number of assessment part is == 1, list assessment under mainLabel then 
+            //      continue the loop.
             //Else  Loop through each assessmentPart and list them one by one.
             if (assessment.getNumberOfParts() == 1) {
                 std::cout << " ┣  Status: [DUE/OVERDUE/GRADED/SUBMITTED/LATE SUBMISSION]\n";
@@ -130,6 +144,7 @@ void MENU_Course::option1() { // list assessments (THIS IS THE MAIN VERSION TILL
     }
 }
 
+// Add an assessment.
 void MENU_Course::option2() {
     std::string userIn; bool found = 0; int i;
     getchar();
@@ -160,6 +175,8 @@ void MENU_Course::option2() {
     CURRENTLY_VIEWING->assessments[i].addAssessmentPart();
 }
 
+// Remove an assessment.
+// TODO: Add ability to differentiate between assessmentParts and assessments.
 void MENU_Course::option3() {
     std::string toRemove = "";
     getchar();
