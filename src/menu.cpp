@@ -6,7 +6,7 @@ void MENU_Main::option1() {
         int i = 1;
         for (Course course : COURSE_LIST) {
             if (course.getVisibility()) continue;
-            std::cout << "<" << i << "> " << course.getID() << " - " <<course.getName() << std::endl;
+            std::cout << "<" << i << "> " << course.getID() << " - " << course.getName() << std::endl;
             std::cout << " ┣  Status: " << course.getStatus() << std::endl;
             std::cout << " ┣  Current Grade: " << course.getCurrentGrade() << std::endl;
             std::cout << " ┗\n";
@@ -28,20 +28,20 @@ void MENU_Main::option2() {
     // Find course in COURSE_LIST
     for (int i = 0; i < COURSE_LIST.size(); ++i) {
         if (COURSE_LIST[i].getID() == id) {
-            CURRENTLY_VIEWING = &COURSE_LIST[i];
-            std::cout << "You are currently viewing " << id << " - " << CURRENTLY_VIEWING->getName() << std::endl;
+            CURRENTLY_VIEWING = i;
+            std::cout << "You are currently viewing " << id << " - " << COURSE_LIST[CURRENTLY_VIEWING].getName() << std::endl;
         }
     }
 
-    if (CURRENTLY_VIEWING == nullptr) std::cout << "That course could not be found.";
+    if (CURRENTLY_VIEWING == -1) std::cout << "That course could not be found.";
     
     // Enter into COURSE_MENU loop. Leave on quit request.
     while(!QUIT_REQUEST) {
-        callMenu(COURSE_MENU, "[" + std::to_string(CURRENTLY_VIEWING->getID()) + "] ~> ");
+        callMenu(COURSE_MENU, "[" + std::to_string(COURSE_LIST[CURRENTLY_VIEWING].getID()) + "] ~> ");
     }
     
     // Reset CURRENTLY_VIEWING and QUIT_REQUEST flag.
-    CURRENTLY_VIEWING = nullptr;
+    CURRENTLY_VIEWING = -1;
     QUIT_REQUEST = 0; 
 }
 
@@ -91,18 +91,18 @@ void MENU_Main::option5() {
     for (int i = 0; i < COURSE_LIST.size(); ++i) {
         if (COURSE_LIST[i].getID() == id) {
             // Set visibility and use CURRENTLY_VIEWING as a found/unfound check.
-            CURRENTLY_VIEWING = &COURSE_LIST[i];
-            CURRENTLY_VIEWING->setVisibility();
+            CURRENTLY_VIEWING = i;
+            COURSE_LIST[CURRENTLY_VIEWING].setVisibility();
 
             std::cout << id << " is now set to ";
-            if (CURRENTLY_VIEWING->getVisibility()) std::cout << "hidden.\n";
+            if (COURSE_LIST[CURRENTLY_VIEWING].getVisibility()) std::cout << "hidden.\n";
             else std::cout << "visible.\n";
             break; //If we've found the course, exit the loop
         }
     }
 
-    if (CURRENTLY_VIEWING == nullptr) std::cout << "That course doesn't appear to be in the list.\n";
-    else CURRENTLY_VIEWING = nullptr;
+    if (CURRENTLY_VIEWING == -1) std::cout << "That course doesn't appear to be in the list.\n";
+    else CURRENTLY_VIEWING = -1;
 }
 
 void MENU_Main::help() {
@@ -116,9 +116,9 @@ void MENU_Main::help() {
 
 // List assessments. (THIS WILL CALL A SEPERATE FUNCTION ON PORT TO NCURSES.)
 void MENU_Course::option1() { 
-    if (!CURRENTLY_VIEWING->assessments.empty()) {
+    if (!COURSE_LIST[CURRENTLY_VIEWING].assessments.empty()) {
         int i = 1;
-        for (Assessment assessment : CURRENTLY_VIEWING->assessments) {
+        for (Assessment assessment : COURSE_LIST[CURRENTLY_VIEWING].assessments) {
             std::cout << "<" << i << "> " << assessment.getMainLabel() << std::endl;
             //If    the number of assessment part is == 1, list assessment under mainLabel then 
             //      continue the loop.
@@ -153,7 +153,7 @@ void MENU_Course::option2() {
     
     // Add main assessment label
     if (tolower(userIn[0]) == 'y') {
-        CURRENTLY_VIEWING->addAssessment();
+        COURSE_LIST[CURRENTLY_VIEWING].addAssessment();
         return;
     }
 
@@ -161,8 +161,9 @@ void MENU_Course::option2() {
     userIn = "";
     std::cout << "Which group is this assessment part under? ~> ";
     std::getline(std::cin, userIn);
-    for (i = 0; i < CURRENTLY_VIEWING->assessments.size(); ++i) {
-        if (CURRENTLY_VIEWING->assessments[i].getMainLabel() == userIn) found = 1;
+    for (i = 0; i < COURSE_LIST[CURRENTLY_VIEWING].assessments.size(); ++i) {
+        if (COURSE_LIST[CURRENTLY_VIEWING].assessments[i].getMainLabel() == userIn) found = 1;
+        std::cout << "FOUND!\n";
     }
 
     // If not found return.
@@ -172,7 +173,8 @@ void MENU_Course::option2() {
         return;
     }
 
-    CURRENTLY_VIEWING->assessments[i].addAssessmentPart();
+    std::cout << i << std::endl;
+    COURSE_LIST[CURRENTLY_VIEWING].assessments[i - 1].addPart();
 }
 
 // Remove an assessment.
@@ -184,10 +186,10 @@ void MENU_Course::option3() {
     std::getline(std::cin, toRemove);
     bool found = 0;
 
-    for (int i = 0; i < CURRENTLY_VIEWING->assessments.size(); ++i) {
-        if (CURRENTLY_VIEWING->assessments[i].getMainLabel() == toRemove) {
+    for (int i = 0; i < COURSE_LIST[CURRENTLY_VIEWING].assessments.size(); ++i) {
+        if (COURSE_LIST[CURRENTLY_VIEWING].assessments[i].getMainLabel() == toRemove) {
             found = true;
-            CURRENTLY_VIEWING->assessments.erase(CURRENTLY_VIEWING->assessments.begin() + i);
+            COURSE_LIST[CURRENTLY_VIEWING].assessments.erase(COURSE_LIST[CURRENTLY_VIEWING].assessments.begin() + i);
             std::cout << toRemove << " has been deleted.\n";
             break;
         }

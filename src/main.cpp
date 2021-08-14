@@ -1,7 +1,7 @@
 #include "headers/init.hpp"
 
 std::vector<Course> COURSE_LIST;
-Course *CURRENTLY_VIEWING = nullptr;
+int CURRENTLY_VIEWING = -1;
 bool QUIT_REQUEST = 0;
 
 int main() {

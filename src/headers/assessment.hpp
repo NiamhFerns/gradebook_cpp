@@ -42,7 +42,7 @@ public:
         unsigned short latePenaltyIn
     );
 
-    void addAssessmentPart();
+    void addPart();
 
     std::string getMainLabel();
     std::string getLabel(int labelIndex);

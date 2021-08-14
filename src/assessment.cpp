@@ -31,13 +31,11 @@ Assessment::Assessment(std::string labelIn, std::string dueDateIn,
     mainLabel = labelIn;
 }
 
-void Assessment::addAssessmentPart() {
-    std::cout << "TEST MESSAGE: PART ADDED!\n";
-    //segmentation fault when trying to add assessment parts here... ;-;
-    assessmentStats.push_back(
+void Assessment::addPart() {
+    assessmentStats.emplace_back(
         PartStats(
             0,
-            "part-" + std::to_string(assessmentStats.size() + 1),
+            "part-#",
             "dueDate",
             "handinDate",
             0 

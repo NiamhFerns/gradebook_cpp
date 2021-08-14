@@ -19,6 +19,7 @@ public:
     Course(std::string courseData[]);
 
     void addAssessment(); //user add
+    void addAssessmentPart(int assessmentPartIndex);
     void addAssessment(std::string assessmentData[]); //when loading
 
     void setRoles();
