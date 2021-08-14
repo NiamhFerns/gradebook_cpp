@@ -46,23 +46,30 @@ Course::Course(std::string courseData[]) {
     }
 }
 
+// General use. Will be used to make the assessment when creating a new assessment.
 void Course::addAssessment() {
-    std::string label, dueDate;
+    std::string label = "", dueDate;
     unsigned short grade, weighting;
-
+    
+     //buffer clear;
     std::cout << "What is the assessment label? ~> ";
-    getchar(); //buffer clear;
     getline(std::cin, label);
     std::cout << "When is this assessment due? ~> ";
     getline(std::cin, dueDate);
     std::cout << "What is the max grade and weighting for this course. ~> ";
+    // This still needs error handling or it'll crash easily.
     std::cin >> grade >> weighting;
 
     assessments.emplace_back(label, dueDate, "unset", 0, grade, weighting, 100); 
 }
 
+// Needs an array FULL with the data.
 void Course::addAssessment(std::string assessmentData[]) {
-    
+    // This is gross... I'm sorry.
+    // Key: 0 = label 1 = dueDate 2 = handinDate 3 = assessedGrade 4 = maxGrade, 5 = weighting, 6 = latePenalty.
+    assessments.emplace_back(assessmentData[0], assessmentData[1], assessmentData[2], 
+                             std::stoi(assessmentData[3]), std::stoi(assessmentData[4]),
+                             std::stoi(assessmentData[5]), std::stoi(assessmentData[6]));
 }
 
 //GETTERS

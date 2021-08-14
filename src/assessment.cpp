@@ -32,7 +32,13 @@ Assessment::Assessment(std::string labelIn,
             0 
     ));
 
+    //define the main label
+    mainLabel = labelIn;
+}
 
+void Assessment::addAssessmentPart() {
+    std::cout << "TEST MESSAGE: PART ADDED!\n";
+    //segmentation fault when trying to add assessment parts here... ;-;
 }
 
 std::string Assessment::getMainLabel() {

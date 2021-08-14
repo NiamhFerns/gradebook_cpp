@@ -110,7 +110,7 @@ void MENU_Course::option1() { // list assessments (THIS IS THE MAIN VERSION TILL
             //If    the number of assessment part is == 1, list assessment under mainLabel then continue the loop.
             //Else  Loop through each assessmentPart and list them one by one.
             if (assessment.getNumberOfParts() == 1) {
-                std::cout << " ┣  Status: [DUE/OVERDUE/GRADED/SUBMITTED/LATE SUBMISSION]\n"  << std::endl;
+                std::cout << " ┣  Status: [DUE/OVERDUE/GRADED/SUBMITTED/LATE SUBMISSION]\n";
                 std::cout << " ┣  Current Grade: " << assessment.getAssessedGrade(i) << std::endl;
                 std::cout << " ┗\n";
                 continue;
@@ -131,7 +131,33 @@ void MENU_Course::option1() { // list assessments (THIS IS THE MAIN VERSION TILL
 }
 
 void MENU_Course::option2() {
-    CURRENTLY_VIEWING->addAssessment();
+    std::string userIn; bool found = 0; int i;
+    getchar();
+    std::cout << "Is this a main assessment? ~> ";
+    std::getline(std::cin, userIn);
+    
+    // Add main assessment label
+    if (tolower(userIn[0]) == 'y') {
+        CURRENTLY_VIEWING->addAssessment();
+        return;
+    }
+
+    // Loop through to find mainLabel then add assessmentPart
+    userIn = "";
+    std::cout << "Which group is this assessment part under? ~> ";
+    std::getline(std::cin, userIn);
+    for (i = 0; i < CURRENTLY_VIEWING->assessments.size(); ++i) {
+        if (CURRENTLY_VIEWING->assessments[i].getMainLabel() == userIn) found = 1;
+    }
+
+    // If not found return.
+    if (!found) {
+        std::cout << "That doesn't appear to be an assessment in this course or " 
+        << "you have no assessments added. Please check spelling and try again.\n";
+        return;
+    }
+
+    CURRENTLY_VIEWING->assessments[i].addAssessmentPart();
 }
 
 void MENU_Course::option3() {

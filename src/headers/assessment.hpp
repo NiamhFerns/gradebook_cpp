@@ -23,7 +23,7 @@ private:
     //if (length 1 ) x
     //else y
     std::vector<PartStats> assessmentStats;
-    std::string mainLabel;
+    std::string mainLabel = "";
 
     //weighting is stored as a percentage but can be converted later.
     //it is the total weighting for the whole assessment. 
@@ -41,6 +41,8 @@ public:
         unsigned short weightingIn,
         unsigned short latePenaltyIn
     );
+
+    void addAssessmentPart();
 
     std::string getMainLabel();
     std::string getLabel(int labelIndex);
