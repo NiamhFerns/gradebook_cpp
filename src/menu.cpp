@@ -114,27 +114,68 @@ void MENU_Main::help() {
     "e <courseID> - View a Course (From here you can add/remove assessments.)\n"; 
 }
 
-// List assessments. (THIS WILL CALL A SEPERATE FUNCTION ON PORT TO NCURSES.)
+// List assessments. (THIS WILL CALL A SEPARATE FUNCTION ON PORT TO NCURSES.)
 void MENU_Course::option1() { 
     if (!COURSE_LIST[CURRENTLY_VIEWING].assessments.empty()) {
-        int i = 1;
+        // TODO: Convert this to a range based loop. Not a foreach loop.
+        int i = 0;
         for (Assessment assessment : COURSE_LIST[CURRENTLY_VIEWING].assessments) {
+            ++i;
             std::cout << "<" << i << "> " << assessment.getMainLabel() << std::endl;
             //If    the number of assessment part is == 1, list assessment under mainLabel then 
             //      continue the loop.
             //Else  Loop through each assessmentPart and list them one by one.
+
+            // TODO Move this print functionality to a separate static function.
             if (assessment.getNumberOfParts() == 1) {
-                std::cout << " ┣  Status: [DUE/OVERDUE/GRADED/SUBMITTED/LATE SUBMISSION]\n";
-                std::cout << " ┣  Current Grade: " << assessment.getAssessedGrade(i) << std::endl;
-                std::cout << " ┗\n";
+                std::cout << "  ┣  Current Due Date: " << assessment.getDueDate(0) << std::endl;
+
+                // Handin Date
+                if (assessment.getHandInDate(0) == "none")
+                    std::cout << "  ┣  Status: OPEN" << std::endl;
+                else if (false) //TODO FIX THIS SHIT PLEASE
+                    std::cout << "  ┣  Status: OVERDUE!\n";
+                else if (false) //TODO FIX THIS SHIT PLEASE
+                    std::cout << "  ┣  Status: " << assessment.getHandInDate(0) << " [LATE]\n";
+                else
+                    std::cout << "  ┣  Status: " << assessment.getHandInDate(0) << std::endl;
+
+                //Assessed Grade
+                if (assessment.getAssessedGrade(0) == 0)
+                    std::cout << "  ┣  Current Grade: UNGRADED\n";
+                else    
+                    std::cout << "  ┣  Current Grade: " << assessment.getAssessedGrade(0) << std::endl;
+
+                //Dropped from score?
+                std::cout << "  ┣  Dropped: " << assessment.getDropped(0) << std::endl;
+                std::cout << "  ┗\n";
                 continue;
             }
 
-            for (int i = 0; i < assessment.getNumberOfParts(); ++i) {
-                std::cout << " ┗ " << assessment.getMainLabel() << std::endl;
-                std::cout << "  ┣  Current Grade: " << assessment.getAssessedGrade(i) << std::endl;
+            for (int j = 0; j < assessment.getNumberOfParts(); ++j) {
+                std::cout << " ┗ " << assessment.getLabel(j) << std::endl;
+                // Due Date
+                std::cout << "  ┣  Current Due Date: " << assessment.getDueDate(j) << std::endl;
+
+                // Handin Date
+                if (assessment.getHandInDate(j) == "none")
+                    std::cout << "  ┣  Status: OPEN" << std::endl;
+                else if (false) //TODO FIX THIS SHIT PLEASE
+                    std::cout << "  ┣  Status: OVERDUE!\n";
+                else if (false) //TODO FIX THIS SHIT PLEASE
+                    std::cout << "  ┣  Status: " << assessment.getHandInDate(j) << " [LATE]\n";
+                else
+                    std::cout << "  ┣  Status: " << assessment.getHandInDate(j) << std::endl;
+
+                //Assessed Grade
+                if (assessment.getAssessedGrade(j) == 0)
+                    std::cout << "  ┣  Current Grade: UNGRADED\n";
+                else    
+                    std::cout << "  ┣  Current Grade: " << assessment.getAssessedGrade(j) << std::endl;
+
+                //Dropped from score?
+                std::cout << "  ┣  Dropped: " << assessment.getDropped(j) << std::endl;
                 std::cout << "  ┗\n";
-                ++i;
             }
         }
     }

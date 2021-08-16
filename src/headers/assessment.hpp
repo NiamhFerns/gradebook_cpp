@@ -44,9 +44,12 @@ public:
 
     void addPart();
 
-    std::string getMainLabel();
-    std::string getLabel(int labelIndex);
-    int getNumberOfParts();
+    std::string    getMainLabel();
+    std::string    getLabel(int labelIndex);
+    std::string    getDueDate(int indx);
+    std::string    getHandInDate(int indx);
+    bool           getDropped(int indx);
+    int            getNumberOfParts();
     unsigned short getAssessedGrade(int assessmentIndex); 
 
     //takes in the amount of parts for multipart assessments.

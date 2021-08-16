@@ -60,7 +60,7 @@ void Course::addAssessment() {
     // This still needs error handling or it'll crash easily.
     std::cin >> grade >> weighting;
 
-    assessments.emplace_back(label, dueDate, "unset", 0, grade, weighting, 100); 
+    assessments.emplace_back(label, dueDate, "none", 0, grade, weighting, 100); 
 }
 
 // Needs an array FULL with the data.
@@ -102,7 +102,7 @@ void Course::getAssessments() { // This is currently unused until port to ncurse
         //convert this to a point pls...
         for (Assessment assessment : assessments) {
             
-            //if the assessments are only one, print the mainlable as the only label. 
+            //if the assessments are only one, print the maintainable as the only label. 
             //else print every label in assessment under the main label as the assessment name.
             // i - Main Label
             //    -> subassessment 1

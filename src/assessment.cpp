@@ -21,7 +21,7 @@ Assessment::Assessment(std::string labelIn, std::string dueDateIn,
     assessmentStats.push_back(
         PartStats(
             0,
-            "part-" + std::to_string(assessmentStats.size() + 1),
+            "Part " + std::to_string(assessmentStats.size() + 1),
             dueDateIn,
             handinDateIn,
             0 
@@ -35,9 +35,9 @@ void Assessment::addPart() {
     assessmentStats.emplace_back(
         PartStats(
             0,
-            "part-#",
-            "dueDate",
-            "handinDate",
+            "Part " + std::to_string(assessmentStats.size() + 1),
+            "none",
+            "none",
             0 
     ));
 }
@@ -48,6 +48,18 @@ std::string Assessment::getMainLabel() {
 
 std::string Assessment::getLabel(int labelIndex) {
     return assessmentStats[labelIndex].label;
+}
+
+std::string Assessment::getDueDate(int indx) {
+    return assessmentStats[indx].dueDate;
+}
+
+std::string Assessment::getHandInDate(int indx) {
+    return assessmentStats[indx].handinDate;
+}
+
+bool Assessment::getDropped(int indx) {
+    return assessmentStats[indx].droppedFromScore;
 }
 
 int Assessment::getNumberOfParts() {
