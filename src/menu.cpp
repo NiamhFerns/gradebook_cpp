@@ -239,14 +239,49 @@ void MENU_Course::option3() {
     if (!found) std::cout << "Sorry, but we could not find that assessment.\n";
 }
 
+// Add an assessed grade to an assessment
 void MENU_Course::option4() {
+    std::string userIn;
+    std::cout << "Which assessment and subassessment do you want to add a grade to? ~> ";
+    std::getline(std::cin, userIn);
 
+    //We need to split string if needed.
+    //Find assessment
+    //find subassessment
+    //change grade
 }
 
+// Change the weighting of an assessment
 void MENU_Course::option5() {
+    std::string userIn;
+    std::cout << "Are you changing the weighting for a main assessment (Y/n)? ~> ";
+    std::getline(std::cin, userIn);
+    bool found = 0;
 
+    if (tolower(userIn[0]) == 'n') {
+        return;
+    }
+
+    std::cout << "Please enter in the name of the assessment/group... ~> ";
+    std::getline(std::cin, userIn);
+    
+    int i;
+    for (i = 0; i < COURSE_LIST[CURRENTLY_VIEWING].assessments.size(); ++i) {
+        if (COURSE_LIST[CURRENTLY_VIEWING].assessments[i].getMainLabel() == userIn) {
+            found = 1;
+            break;
+        }
+    }
+
+    if (!found) {
+        std::cout << "We could not find that assessment. Please try again.\n";
+        return;
+    }
+
+    COURSE_LIST[CURRENTLY_VIEWING].assessments[i].setWeighting(-1);
 }
 
+// Change the max grade of an assessment.
 void MENU_Course::option6() {
 
 }

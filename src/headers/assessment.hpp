@@ -6,12 +6,14 @@
 #include <vector>
 
 struct PartStats {
-    unsigned short partGrade;
+    unsigned short partGrade, partMax;
     std::string label, dueDate, handinDate;
     bool droppedFromScore;
+    float weighting;
 
-    PartStats(unsigned short partGradeIn,
-              std::string labelIn,
+    PartStats(std::string labelIn,
+              unsigned short partGradeIn,
+              unsigned short partMaxIn,
               std::string dueDateIn,
               std::string handinDateIn,
               bool dropped);
@@ -28,7 +30,7 @@ private:
     //weighting is stored as a percentage but can be converted later.
     //it is the total weighting for the whole assessment. 
     //weighting per part handled later.
-    unsigned short maxGrade = 100, weighting, latePenalty;
+    unsigned short weighting, latePenalty; //TODO Move penalty into the PartStats.
     
 public:
     Assessment
@@ -52,9 +54,8 @@ public:
     int            getNumberOfParts();
     unsigned short getAssessedGrade(int assessmentIndex); 
 
-    //takes in the amount of parts for multipart assessments.
-    void setAssessedGrade(unsigned short grade);
     void setAssessedGrade(unsigned short grade, unsigned short part);
+    void setWeighting(int indx);
 };
 
 #endif
