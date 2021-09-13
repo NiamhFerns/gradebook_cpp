@@ -283,13 +283,19 @@ void MENU_Course::option5() {
 
 // Change the max grade of an assessment.
 void MENU_Course::option6() {
+    std::string userIn;
+    std::cout << "Please enter in the name of the assessment/group that you would like to change the weighting for. ~> ";
+    std::getline(std::cin, userIn);
+    bool found = 0;
 
+    for (int i = 0; i < COURSE_LIST[CURRENTLY_VIEWING].assessments.size(); ++i) {
+
+    }
 }
 
 void MENU_Course::option7() {
 
 }
-
 
 void MENU_Course::help() {
     std::cout << 
