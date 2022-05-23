@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/niamh/Dev/personal/gradebook/build",
+  "command": "/bin/c++ -g -o CMakeFiles/GradeBook.dir/src/main.cpp.o -c /home/niamh/Dev/personal/gradebook/src/main.cpp",
+  "file": "/home/niamh/Dev/personal/gradebook/src/main.cpp"
+},
+{
+  "directory": "/home/niamh/Dev/personal/gradebook/build",
+  "command": "/bin/c++ -g -o CMakeFiles/GradeBook.dir/src/init.cpp.o -c /home/niamh/Dev/personal/gradebook/src/init.cpp",
+  "file": "/home/niamh/Dev/personal/gradebook/src/init.cpp"
+},
+{
+  "directory": "/home/niamh/Dev/personal/gradebook/build",
+  "command": "/bin/c++ -g -o CMakeFiles/GradeBook.dir/src/menu.cpp.o -c /home/niamh/Dev/personal/gradebook/src/menu.cpp",
+  "file": "/home/niamh/Dev/personal/gradebook/src/menu.cpp"
+},
+{
+  "directory": "/home/niamh/Dev/personal/gradebook/build",
+  "command": "/bin/c++ -g -o CMakeFiles/GradeBook.dir/src/course.cpp.o -c /home/niamh/Dev/personal/gradebook/src/course.cpp",
+  "file": "/home/niamh/Dev/personal/gradebook/src/course.cpp"
+},
+{
+  "directory": "/home/niamh/Dev/personal/gradebook/build",
+  "command": "/bin/c++ -g -o CMakeFiles/GradeBook.dir/src/assessment.cpp.o -c /home/niamh/Dev/personal/gradebook/src/assessment.cpp",
+  "file": "/home/niamh/Dev/personal/gradebook/src/assessment.cpp"
+}
+]

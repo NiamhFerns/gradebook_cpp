@@ -1,0 +1,7 @@
+# ninja log v5
+0	275	1629686406169968227	CMakeFiles/GradeBook.dir/src/main.cpp.o	aa64f6684b5ad73
+0	291	1629686406179968227	CMakeFiles/GradeBook.dir/src/assessment.cpp.o	330850f195b513de
+411	466	1629686406359968228	GradeBook	c5f6dfe0cde5ecb
+0	302	1629686406189968227	CMakeFiles/GradeBook.dir/src/init.cpp.o	376fdfa6634da472
+0	323	1629686406219968227	CMakeFiles/GradeBook.dir/src/course.cpp.o	dbb0d0ebce61cf3
+0	411	1629686406299968228	CMakeFiles/GradeBook.dir/src/menu.cpp.o	2d5113ec4b75b662
